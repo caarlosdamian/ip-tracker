@@ -1,8 +1,13 @@
 import React from "react";
-import './App.scss'
+import { Top } from "../../sections/top/Top";
+import "./App.scss";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Top />
+    </div>
+  );
 }
 
 export default App;
