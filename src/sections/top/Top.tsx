@@ -1,4 +1,5 @@
 import React from "react";
+import { InputText } from "../../components/inputText/InputText";
 import "./Top.scss";
 
 export const Top = () => {
@@ -8,10 +9,7 @@ export const Top = () => {
         <h1 className="top-inner-container-title">IP Address Tracker</h1>
       </div>
       <div className="top-bottom-inner-container">
-        <div className="input-container">
-          <input type="text" className="input-text" placeholder="Search for IP address or domain" />
-          <button className="input-button">{`>`}</button>
-        </div>
+        <InputText/>
       </div>
     </div>
   );
