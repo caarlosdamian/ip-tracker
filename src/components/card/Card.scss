@@ -12,6 +12,8 @@
   justify-content: center;
   flex-direction: column;
   gap: 24px;
+  z-index: 2;
+//   display: none;
 
   .labels-container {
     display: flex;
