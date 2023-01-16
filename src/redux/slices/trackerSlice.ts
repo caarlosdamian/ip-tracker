@@ -59,15 +59,6 @@ export const fetchIpAddress = createAsyncThunk(
     return response.data;
   }
 );
-// export const fetchIpAddressInfo = createAsyncThunk(
-//   "users/fetchIpAddressInfo",
-//   async (search: string) => {
-//     const response = await axios(
-//       `https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${search}`
-//     );
-//     return response.data;
-//   }
-// );
 
 const trackerSlice = createSlice({
   name: "tracker",

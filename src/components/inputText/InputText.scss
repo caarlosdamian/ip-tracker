@@ -36,7 +36,13 @@
       color: #2c2c2c;
       mix-blend-mode: normal;
       opacity: 0.5;
+      white-space: nowrap;
+      overflow: hidden;
       text-overflow: ellipsis;
+      width: 60px;
+      @include for-size("tablet-portrait-up") {
+        width: 100%;
+      }
     }
   }
   .input-button {
@@ -53,8 +59,8 @@
     position: absolute;
     right: 0;
 
-    &:hover{
-      background: #3F3F3F;
+    &:hover {
+      background: #3f3f3f;
       cursor: pointer;
     }
   }

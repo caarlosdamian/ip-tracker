@@ -13,10 +13,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <main className="App">
       <Top />
       <Bottom />
-    </div>
+    </main>
   );
 }
 

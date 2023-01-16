@@ -11,7 +11,7 @@ export const InputText = ({ clickFunction, ...props }: InputTextI) => {
       <input
         type="text"
         className="input-text"
-        placeholder="Search for IP address or domain"
+        placeholder="Search for any IP address or domain"
         {...props}
       />
       <button className="input-button" onClick={clickFunction} >{`>`}</button>
