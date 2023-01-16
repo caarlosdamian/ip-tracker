@@ -1,6 +1,4 @@
-import React, {
-  useState,
-} from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Card } from "../../components/card/Card";
 import { InputText } from "../../components/inputText/InputText";
@@ -19,6 +17,7 @@ export const Top = () => {
   const handleClick = () => {
     dispatch(fetchIpAddress(searchIp));
   };
+  
   return (
     <div className="top-container">
       <Card />

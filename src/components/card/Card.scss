@@ -13,7 +13,8 @@
   flex-direction: column;
   gap: 24px;
   z-index: 2;
-//   display: none;
+  text-overflow: ellipsis;
+  overflow: scroll;
 
   .labels-container {
     display: flex;
@@ -41,6 +42,7 @@
       text-align: center;
       letter-spacing: -0.178571px;
       color: #2c2c2c;
+      text-align: center;
     }
   }
 }
