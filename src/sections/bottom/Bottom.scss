@@ -1,4 +1,21 @@
-.bottom-container{
-    width: 100vw;
-    height: 100vh;
+.bottom-container {
+  width: 100vw;
+  height: 100vh;
+  transition: all ease .3s;
+  .spinner-1 {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #0594d1 #fff;
+    animation: s1 1s infinite;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @keyframes s1 {
+    to {
+      transform: rotate(0.5turn);
+    }
+  }
 }

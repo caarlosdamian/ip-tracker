@@ -1,9 +1,11 @@
 import React from "react";
 import "./InputText.scss";
 
-export const InputText = ({
-  ...props
-}: React.InputHTMLAttributes<HTMLInputElement>) => {
+interface InputTextI extends React.InputHTMLAttributes<HTMLInputElement> {
+  clickFunction: () => void;
+}
+
+export const InputText = ({ clickFunction, ...props }: InputTextI) => {
   return (
     <div className="input-container">
       <input
@@ -12,7 +14,7 @@ export const InputText = ({
         placeholder="Search for IP address or domain"
         {...props}
       />
-      <button className="input-button">{`>`}</button>
+      <button className="input-button" onClick={clickFunction} >{`>`}</button>
     </div>
   );
 };

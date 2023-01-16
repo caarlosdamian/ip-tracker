@@ -1,8 +1,9 @@
-import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./Bottom.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 // @ts-ignore
 delete L?.Icon.Default.prototype._getIconUrl;
 
@@ -12,20 +13,40 @@ L?.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
+interface MarkerI {
+  lan: number;
+  long: number;
+}
+
+const LocationMarker = ({ lan, long }: MarkerI) => {
+  return (
+    <Marker position={[lan, long]}>
+      <Popup>
+        A pretty CSS3 popup. <br /> Easily customizable.
+      </Popup>
+    </Marker>
+  );
+};
+
 export const Bottom = () => {
+  const { lant, long } = useSelector(
+    (state: RootState) => state.tracker.coordinates
+  );
+
+  const { loading } = useSelector((state: RootState) => state.tracker);
   return (
     <div className="bottom-container" id="map">
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
-        <TileLayer
-          attribution="&copy; caarlosdamian"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </MapContainer>
+      {loading ? (
+        <div className="spinner-1"></div>
+      ) : (
+        <MapContainer center={[lant, long]} zoom={15} scrollWheelZoom={true}>
+          <TileLayer
+            attribution="&copy; caarlosdamian"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <LocationMarker lan={lant} long={long} />
+        </MapContainer>
+      )}
     </div>
   );
 };
