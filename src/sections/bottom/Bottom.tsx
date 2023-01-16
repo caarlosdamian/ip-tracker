@@ -16,24 +16,24 @@ L?.Icon.Default.mergeOptions({
 interface MarkerI {
   lan: number;
   long: number;
+  city: string;
 }
 
-const LocationMarker = ({ lan, long }: MarkerI) => {
+const LocationMarker = ({ lan, long, city }: MarkerI) => {
   return (
     <Marker position={[lan, long]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
+      <Popup>You are in {city}</Popup>
     </Marker>
   );
 };
 
 export const Bottom = () => {
-  const { lant, long } = useSelector(
-    (state: RootState) => state.tracker.coordinates
-  );
+  const {
+    coordinates: { lant, long },
+    loading,
+    data: { city },
+  } = useSelector((state: RootState) => state.tracker);
 
-  const { loading } = useSelector((state: RootState) => state.tracker);
   return (
     <div className="bottom-container" id="map">
       {loading ? (
@@ -44,7 +44,7 @@ export const Bottom = () => {
             attribution="&copy; caarlosdamian"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <LocationMarker lan={lant} long={long} />
+          <LocationMarker lan={lant} long={long} city={city} />
         </MapContainer>
       )}
     </div>
